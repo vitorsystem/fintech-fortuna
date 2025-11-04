@@ -16,7 +16,7 @@ public class InvestimentoController {
     @Autowired
     private InvestimentoService investimentoService;
 
-    // --- POST (Criar) ---
+    // --- POST ---
     // o JSON de entrada vai precisar do ID da conta
     @PostMapping
     public ResponseEntity<Investimento> create(@RequestBody Investimento investimento) {

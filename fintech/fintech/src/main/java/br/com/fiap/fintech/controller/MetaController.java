@@ -18,7 +18,7 @@ public class MetaController {
     @Autowired
     private MetaService metaService;
 
-    // --- POST (Criar) ---
+    // --- POST ---
     // Ex: { "nomeMeta": "Viagem Japão", "valorObjetivo": 15000, "dataLimite": "2026-12-31", "conta": { "idConta": 1 } }
     @PostMapping
     public ResponseEntity<Meta> create(@RequestBody Meta meta) {
@@ -26,14 +26,14 @@ public class MetaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(novaMeta);
     }
 
-    // --- GET (Listar por Conta) ---
+    // --- GET ---
     @GetMapping("/conta/{idConta}")
     public ResponseEntity<List<Meta>> getMetasPorConta(@PathVariable int idConta) {
         List<Meta> metas = metaService.listarPorConta(idConta);
         return ResponseEntity.ok(metas);
     }
 
-    // --- GET (Buscar por ID da Meta) ---
+    // --- GET ---
     @GetMapping("/{id}")
     public ResponseEntity<Meta> getMetaById(@PathVariable int id) {
         try {
@@ -44,7 +44,7 @@ public class MetaController {
         }
     }
 
-    // --- PUT (Atualizar) ---
+    // --- PUT ---
     @PutMapping("/{id}")
     public ResponseEntity<Meta> update(@PathVariable int id, @RequestBody Meta metaNovosDados) {
         try {
@@ -55,7 +55,7 @@ public class MetaController {
         }
     }
 
-    // --- DELETE (Deletar) ---
+    // --- DELETE ---
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable int id) {
         try {

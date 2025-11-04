@@ -16,14 +16,14 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    // --- GET (Listar todos) ---
+    // --- GET ---
     @GetMapping
     public ResponseEntity<List<Usuario>> getAllUsuarios() {
         List<Usuario> usuarios = usuarioService.listarTodos();
         return ResponseEntity.ok(usuarios);
     }
 
-    // --- GET (Buscar por ID) ---
+    // --- GET ---
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> getUsuarioById(@PathVariable int id) {
         try {
@@ -34,14 +34,14 @@ public class UsuarioController {
         }
     }
 
-    // --- POST (Criar) ---
+    // --- POST ---
     @PostMapping
     public ResponseEntity<Usuario> create(@RequestBody Usuario usuario) {
         Usuario novoUsuario = usuarioService.salvar(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(novoUsuario);
     }
 
-    // --- PUT (Atualizar) ---
+    // --- PUT ---
     @PutMapping("/{id}")
     public ResponseEntity<Usuario> update(@PathVariable int id, @RequestBody Usuario usuarioNovosDados) {
         try {
@@ -52,7 +52,7 @@ public class UsuarioController {
         }
     }
 
-    // --- DELETE (Deletar) ---
+    // --- DELETE ---
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable int id) {
         try {

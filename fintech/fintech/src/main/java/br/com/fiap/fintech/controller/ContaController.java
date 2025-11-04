@@ -34,14 +34,14 @@ public class ContaController {
         }
     }
 
-    // --- POST (Criar uma nova conta) ---
+    // --- POST ---
     @PostMapping
     public ResponseEntity<Conta> create(@RequestBody Conta conta) {
         Conta novaConta = contaService.salvar(conta);
         return ResponseEntity.status(HttpStatus.CREATED).body(novaConta);
     }
 
-    // --- PUT (Atualizar o nome de uma conta) ---
+    // --- PUT ---
     @PutMapping("/{id}")
     public ResponseEntity<Conta> update(@PathVariable int id, @RequestBody Conta contaNovosDados) {
         try {
@@ -52,7 +52,7 @@ public class ContaController {
         }
     }
 
-    // --- DELETE (Deletar uma conta) ---
+    // --- DELETE ---
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable int id) {
         try {

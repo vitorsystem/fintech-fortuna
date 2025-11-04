@@ -27,7 +27,7 @@ public class Investimento {
     @Column(name = "data_aplicacao", updatable = false)
     private LocalDate dataAplicacao;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_conta", nullable = false)
     private Conta conta;
 

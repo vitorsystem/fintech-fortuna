@@ -21,7 +21,7 @@ public class Meta {
     @Column(name = "data_limite")
     private LocalDate dataLimite;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_conta", nullable = false)
     private Conta conta;
 
